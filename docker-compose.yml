@@ -1,0 +1,5 @@
+services:
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.28.2
+    ports:
+    - "8087:8080"
