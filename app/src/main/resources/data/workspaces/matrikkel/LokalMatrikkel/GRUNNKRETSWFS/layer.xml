@@ -1,0 +1,21 @@
+<layer>
+  <name>GRUNNKRETSWFS</name>
+  <id>LayerInfoImpl--69e0e2f9:14fe632e407:-7fbb</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--55eb755c:12b5201e5a0:-7fff</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--55eb755c:12b5201e5a0:-7fff</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--69e0e2f9:14fe632e407:-7fbc</id>
+  </resource>
+  <opaque>true</opaque>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

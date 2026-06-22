@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:gml='http://www.opengis.net/gml'
+           elementFormDefault="qualified" targetNamespace="http://www.statkart.no/matrikkel"
+           xmlns:MATRIKKEL="http://www.statkart.no/matrikkel">
+    <xs:element name="SEFRAKMINNEWFS" substitutionGroup="gml:_Feature" type="MATRIKKEL:SEFRAKMINNEWFS_Type"/>
+    <xs:complexType name="SEFRAKMINNEWFS_Type">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="SEFRAKMINNEID" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="KOMMUNENR " nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="REGISTRERINGSKRETSNR" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="HUSLOPENR" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="KM_BETEGN" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BYGGNR" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="REPRESENTASJONSPUNKT" nillable="true"
+                                type="gml:GeometryPropertyType"/>
+                    <xs:element minOccurs="0" name="BYGNINGSTATUSKODE" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="REVETBRENTTIDSKODE" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="BYGGETIDSKODE" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="GJELDENDEKOMMUNENR" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

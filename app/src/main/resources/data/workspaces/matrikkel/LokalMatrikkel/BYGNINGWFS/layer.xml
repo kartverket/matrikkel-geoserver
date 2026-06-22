@@ -1,0 +1,20 @@
+<layer>
+  <name>BYGNINGWFS</name>
+  <id>LayerInfoImpl--77c337c6:14fda889478:-7ff9</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ffd</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ffd</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--77c337c6:14fda889478:-7ffa</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

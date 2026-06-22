@@ -1,0 +1,20 @@
+<layer>
+  <name>SEFRAKMINNEWFS</name>
+  <id>LayerInfoImpl--70cfb045:14fe51d98d7:-7e41</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--3608cec9:131b2e676dd:-7ff5</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--3608cec9:131b2e676dd:-7ff5</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--70cfb045:14fe51d98d7:-7e42</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

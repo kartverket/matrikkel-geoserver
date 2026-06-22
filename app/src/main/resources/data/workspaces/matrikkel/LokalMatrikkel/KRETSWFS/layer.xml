@@ -1,0 +1,20 @@
+<layer>
+  <name>KRETSWFS</name>
+  <id>LayerInfoImpl-5511e2bc:14fe5780a88:-7efa</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ffe</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ffe</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5511e2bc:14fe5780a88:-7efb</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

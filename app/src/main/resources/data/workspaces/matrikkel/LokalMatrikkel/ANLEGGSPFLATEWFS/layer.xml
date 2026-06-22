@@ -1,0 +1,20 @@
+<layer>
+  <name>ANLEGGSPFLATEWFS</name>
+  <id>LayerInfoImpl--69e0e2f9:14fe632e407:-7fe0</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ff4</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ff4</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--69e0e2f9:14fe632e407:-7fe1</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

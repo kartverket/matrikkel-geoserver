@@ -1,0 +1,20 @@
+<layer>
+  <name>ANNENKRETS2WFS</name>
+  <id>LayerInfoImpl--69e0e2f9:14fe632e407:-7fc8</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--55eb755c:12b5201e5a0:-7ff8</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--55eb755c:12b5201e5a0:-7ff8</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--69e0e2f9:14fe632e407:-7fc9</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

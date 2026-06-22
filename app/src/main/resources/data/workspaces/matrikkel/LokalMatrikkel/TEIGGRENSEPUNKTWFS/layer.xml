@@ -1,0 +1,21 @@
+<layer>
+  <name>TEIGGRENSEPUNKTWFS</name>
+  <id>LayerInfoImpl--70cfb045:14fe51d98d7:-7ffc</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ffa</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ffa</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--70cfb045:14fe51d98d7:-7ffd</id>
+  </resource>
+  <queryable>true</queryable>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>
