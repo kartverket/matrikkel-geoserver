@@ -1,10 +1,10 @@
 services:
   geoserver:
-    image: docker.osgeo.org/geoserver:3.0.0
+    build:
+      context: .
+      dockerfile: app/Dockerfile
     ports:
     - "8087:8080"
-    volumes:
-      - ./app/src/main/resources/data:/opt/geoserver_data
     env_file:
       - docker/local-compose.env
     environment:
