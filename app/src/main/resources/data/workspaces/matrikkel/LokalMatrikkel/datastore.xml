@@ -8,10 +8,10 @@
   <connectionParameters>
     <entry key="namespace">http://www.statkart.no/matrikkel</entry>
     <entry key="Loose bbox">false</entry>
-    <entry key="database">/${KART_DB_DATABASE}</entry><!-- utledet fra "kart.db.jdbc.url" -->
-    <entry key="host">${KART_DB_HOST}</entry><!-- utledet fra "kart.db.jdbc.url" -->
-    <entry key="port">${KART_DB_PORT}</entry><!-- utledet fra "kart.db.jdbc.url" -->
-    <entry key="schema">${KART_DB_SCHEMA}</entry><!-- utledet fra "kart.db.username" -->
+    <entry key="database">/${KART_DB_DATABASE}</entry>
+    <entry key="host">${KART_DB_HOST}</entry>
+    <entry key="port">${KART_DB_PORT}</entry>
+    <entry key="schema">${KART_DB_SCHEMA}</entry>
     <entry key="user">${KART_DB_USERNAME}</entry>
     <entry key="passwd">${KART_DB_PASSWORD}</entry>
 
