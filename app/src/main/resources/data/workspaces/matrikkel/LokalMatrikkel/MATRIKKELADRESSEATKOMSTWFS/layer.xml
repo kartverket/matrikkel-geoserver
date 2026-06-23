@@ -1,0 +1,20 @@
+<layer>
+  <name>MATRIKKELADRESSEATKOMSTWFS</name>
+  <id>LayerInfoImpl-57c4c708:176468c794c:-7ffd</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-411940ad:17597cf26a6:-8000</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-411940ad:17597cf26a6:-8000</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-57c4c708:176468c794c:-7ffe</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

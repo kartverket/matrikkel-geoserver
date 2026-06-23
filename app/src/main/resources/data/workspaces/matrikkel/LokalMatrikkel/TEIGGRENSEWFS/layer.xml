@@ -1,0 +1,20 @@
+<layer>
+  <name>TEIGGRENSEWFS</name>
+  <id>LayerInfoImpl-5b7f7e64:14fe5127f65:-7ef8</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ff8</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ff8</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5b7f7e64:14fe5127f65:-7ef9</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

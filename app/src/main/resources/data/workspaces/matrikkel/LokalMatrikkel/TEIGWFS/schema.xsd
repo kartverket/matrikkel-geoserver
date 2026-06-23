@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:gml='http://www.opengis.net/gml'
+           elementFormDefault="qualified" targetNamespace="http://www.statkart.no/matrikkel"
+           xmlns:MATRIKKEL="http://www.statkart.no/matrikkel">
+    <xs:element name="TEIGWFS" substitutionGroup="gml:_Feature" type="MATRIKKEL:TEIGWFS_Type"/>
+    <xs:complexType name="TEIGWFS_Type">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element type="xs:string" minOccurs="0" name="TEIGID" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="KOMMUNENR" nillable="true"/>
+                    <xs:element type="xs:double" minOccurs="0" name="AREAL" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="GARDSNR" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="BRUKSNR" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="FESTENR" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="SEKSJONSNR" nillable="true"/>
+                    <xs:element type="gml:PolygonPropertyType" minOccurs="0" name="FLATE" nillable="true"/>
+                    <xs:element type="gml:PointPropertyType" minOccurs="0" name="REPRESENTASJONSPUNKT" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="MATRIKKELNR" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="HOVEDTEIG" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="UREGISTRERTJORDSAMEIE" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="AVKLARTEIERE" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="TEIGMEDFLEREMATRIKKELENHETER" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="TVIST" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="UNDERSAMMENSLAINGUTGAR" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="UNDERSAMMENSLAINGBESTAR" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="EIENDOMSTYPE" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="AREALMERKNADSKODER" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="PUNKTFESTE" nillable="true"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

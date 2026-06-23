@@ -1,0 +1,30 @@
+<dataStore>
+  <id>DataStoreInfoImpl--503383c7:12655d8171f:-7ff3</id>
+  <name>LokalMatrikkel</name>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--503383c7:12655d8171f:-7fff</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="namespace">http://www.statkart.no/matrikkel</entry>
+    <entry key="Loose bbox">false</entry>
+    <entry key="database">/${KART_DB_DATABASE}</entry>
+    <entry key="host">${KART_DB_HOST}</entry>
+    <entry key="port">${KART_DB_PORT}</entry>
+    <entry key="schema">${KART_DB_SCHEMA}</entry>
+    <entry key="user">${KART_DB_USERNAME}</entry>
+    <entry key="passwd">${KART_DB_PASSWORD}</entry>
+
+    <entry key="dbtype">oracle</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="max connections">30</entry>
+    <entry key="min connections">1</entry>
+    <entry key="fetch size">1000</entry>
+    <entry key="Max open prepared statements">10</entry>
+
+    <entry key="Test while idle">false</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="Estimated extends">false</entry>
+  </connectionParameters>
+  <__default>false</__default>
+</dataStore>

@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:gml='http://www.opengis.net/gml'
+           elementFormDefault="qualified" targetNamespace="http://www.statkart.no/matrikkel"
+           xmlns:MATRIKKEL="http://www.statkart.no/matrikkel">
+    <xs:element name="TEIGGRENSEWFS" substitutionGroup="gml:_Feature" type="MATRIKKEL:TEIGGRENSEWFS_Type"/>
+    <xs:complexType name="TEIGGRENSEWFS_Type">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element type="xs:string" minOccurs="0" name="TEIGGRENSEID" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="KOMMUNENR" nillable="true"/>
+                    <xs:element type="gml:LineStringPropertyType" minOccurs="0" name="KURVE" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="TEIGGRENSETYPE" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="MALEMETODE" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="NOYAKTIGHET" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="NOYAKTIGHETSKLASSE" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="OMTVISTET" nillable="true"/>
+                    <xs:element type="xs:boolean" minOccurs="0" name="BUE" nillable="true"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

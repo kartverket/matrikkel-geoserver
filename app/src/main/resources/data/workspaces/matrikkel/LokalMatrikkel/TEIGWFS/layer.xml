@@ -1,0 +1,26 @@
+<layer>
+  <name>TEIGWFS</name>
+  <id>LayerInfoImpl--3cbf9334:14fe1fc9e1d:-7f42</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--503383c7:12655d8171f:-7ff6</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-70a23798:12e7b171443:-7ffb</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--503383c7:12655d8171f:-7ff6</id>
+    </style>
+    <style>
+      <id>StyleInfoImpl--33e45b2:1351908c1d0:-7ff9</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--3cbf9334:14fe1fc9e1d:-7f43</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

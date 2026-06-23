@@ -1,0 +1,18 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:gml='http://www.opengis.net/gml'
+           elementFormDefault="qualified" targetNamespace="http://www.statkart.no/matrikkel"
+           xmlns:MATRIKKEL="http://www.statkart.no/matrikkel">
+    <xs:element name="TETTSTEDWFS" substitutionGroup="gml:_Feature" type="MATRIKKEL:TETTSTEDWFS_Type"/>
+    <xs:complexType name="TETTSTEDWFS_Type">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element type="xs:string" minOccurs="0" name="KRETSID" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="KRETSTYPEKODEID" nillable="true"/>
+                    <xs:element type="xs:integer" minOccurs="0" name="KRETSNR" nillable="true"/>
+                    <xs:element type="xs:string" minOccurs="0" name="KRETSNAVN" nillable="true"/>
+                    <xs:element type="gml:MultiPolygonPropertyType" minOccurs="0" name="FLATE" nillable="true"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

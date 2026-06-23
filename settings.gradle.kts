@@ -23,3 +23,4 @@ include(":app")
 include(":utils")
 
 rootProject.name = "matrikkel-geoserver"
+include("docker")
