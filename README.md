@@ -27,3 +27,10 @@ and both a build cache and a configuration cache (see `gradle.properties`).
 This project includes a docker compose that starts the geoserver image
 
 `docker compose up --build`
+
+### Database
+
+This project expects a preconfigured database. 
+Create a local-compose.env using the template and fill in database connection information. 
+
+The application will start without the correct database information, but you will not be able to use the services.
