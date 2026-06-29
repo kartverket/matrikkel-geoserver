@@ -28,16 +28,7 @@ spec:
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
 
-  accessPolicy:
-    outbound:
-      external:
-        - host:  https://downloads.sourceforge.net/project/geoserver/GeoServer
-
   env:
-    - name: INSTALL_EXTENSIONS
-      value: "true"
-    - name: STABLE_EXTENSIONS
-      value: "oracle"
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
 

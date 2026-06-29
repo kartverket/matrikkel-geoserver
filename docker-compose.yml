@@ -9,6 +9,4 @@ services:
       - docker/local-compose.env
     environment:
       - SKIP_DEMO_DATA=true
-      - INSTALL_EXTENSIONS=true
-      - STABLE_EXTENSIONS=oracle
       - JAVA_OPTS=-DALLOW_ENV_PARAMETRIZATION=true
