@@ -150,7 +150,7 @@ jobs:
   deploy-qa:
     name: "Deploy Prodtest"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: false #github.ref == 'refs/heads/main'
     needs:
       - version
       - deploy-dev
@@ -171,7 +171,7 @@ jobs:
   deploy-prod-notifier:
     name: Slack Notify; Deploy to Production
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: false #github.ref == 'refs/heads/main'
     needs:
       - version
       - pharos
@@ -198,7 +198,7 @@ jobs:
   deploy-prod:
     name: Deploy to prod
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: false #github.ref == 'refs/heads/main'
     needs:
       - version
       - deploy-prod-notifier
