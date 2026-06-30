@@ -11,6 +11,10 @@ RUN ./gradlew copyGeoserverLibs
 RUN ./gradlew copyLoggingLibs
 
 FROM docker.osgeo.org/geoserver:3.0.0@sha256:d8ff66a3e0f956415e048494a876e03f6475ddabcf1b1e6e9a8adba82ca50ee7
+
+ENV SKIP_DEMO_DATA="true"
+ENV CATALINA_TMPDIR="/tmp/catalina"
+
 # Kopierer inn datamappe til tmp plassering for GEOSERVER_DATA_DIR
 ENV GEOSERVER_DATA_DIR="/tmp/geoserver_data"
 COPY --from=build /workspace/app/src/main/resources/data $GEOSERVER_DATA_DIR
