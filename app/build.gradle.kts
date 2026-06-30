@@ -11,6 +11,8 @@ configurations {
     register("geoserver"){
         isTransitive = false
     }
+
+    register("logging")
 }
 
 dependencies {
@@ -18,6 +20,8 @@ dependencies {
     implementation(project(":utils"))
     "geoserver"(libs.gt.jdbc)
     "geoserver"(libs.ojdbc17)
+
+    "logging"(libs.log4j.layout)
 }
 
 application {
@@ -28,4 +32,8 @@ application {
 tasks.register<Copy>("copyGeoserverLibs") {
     from(configurations["geoserver"])
     into(layout.buildDirectory.dir("geoserver"))
+}
+tasks.register<Copy>("copyLoggingLibs") {
+    from(configurations["logging"])
+    into(layout.buildDirectory.dir("logging"))
 }

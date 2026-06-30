@@ -16,6 +16,8 @@ kotlinxCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", 
 
 gt-jdbc = { module = "org.geotools.jdbc:gt-jdbc-oracle", version = "35.0" }
 ojdbc17 = { module = "com.oracle.database.jdbc:ojdbc17", version = "23.26.2.0.0"}
+
+log4j-layout = { module = "org.apache.logging.log4j:log4j-layout-template-json", version="2.26.0"}
 # Libraries can be bundled together for easier import
 [bundles]
 kotlinxEcosystem = ["kotlinxDatetime", "kotlinxSerialization", "kotlinxCoroutines"]
