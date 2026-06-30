@@ -1,0 +1,34 @@
+apiVersion: skiperator.kartverket.no/v1alpha1
+kind: Application
+metadata:
+  name: matrikkel-geoserver
+  namespace: matrikkel-main
+spec:
+  image: "{{ image }}"
+  port: 8080
+  ingresses:
+    - matrikkel-geoserver.atkv3-dev.kartverket-intern.cloud
+  replicas: 1
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 1G
+    limits:
+      memory: 2G
+
+  liveness:
+    port: 8080
+    path: /geoserver/web
+    initialDelay: 10      # default: 0
+    failureThreshold: 6   # default: 3
+  readiness:
+    port: 8080
+    path: /geoserver/web
+    initialDelay: 10      # default: 0
+    failureThreshold: 6   # default: 3
+
+  env:
+    - name: JAVA_OPTS
+      value: "-DALLOW_ENV_PARAMETRIZATION=true"
+
