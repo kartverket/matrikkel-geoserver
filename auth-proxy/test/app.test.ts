@@ -55,7 +55,11 @@ describe("Bearer token auth", () => {
     const fetchSpy = spyOn(global, "fetch").mockResolvedValueOnce(
       new Response("ok", { status: 200 }),
     );
-    const token = await signToken({ sub: "u1", preferred_username: "alice", aud: "matrikkel-geoserver" });
+    const token = await signToken({
+      sub: "u1",
+      preferred_username: "alice",
+      aud: "matrikkel-geoserver",
+    });
     const res = await makeApp().request("/geoserver/wms", {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -95,7 +99,11 @@ describe("Basic auth", () => {
     const fetchSpy = spyOn(global, "fetch").mockResolvedValueOnce(
       new Response("ok", { status: 200 }),
     );
-    const token = await signToken({ sub: "u1", preferred_username: "alice", aud: "matrikkel-geoserver" });
+    const token = await signToken({
+      sub: "u1",
+      preferred_username: "alice",
+      aud: "matrikkel-geoserver",
+    });
     const res = await makeApp(token).request("/geoserver/wms", {
       headers: { Authorization: `Basic ${btoa("alice:secret")}` },
     });

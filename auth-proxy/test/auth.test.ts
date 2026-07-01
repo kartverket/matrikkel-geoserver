@@ -91,7 +91,11 @@ describe("verifyBearerToken", () => {
 
 describe("verifyBasicAuth", () => {
   it("calls Keycloak and returns claims on valid credentials", async () => {
-    const token = await signToken({ sub: "bob", preferred_username: "bob", aud: "matrikkel-geoserver" });
+    const token = await signToken({
+      sub: "bob",
+      preferred_username: "bob",
+      aud: "matrikkel-geoserver",
+    });
     const oidcConfig = makeMockOidcConfig(() =>
       Response.json({ access_token: token, token_type: "Bearer" }),
     );
