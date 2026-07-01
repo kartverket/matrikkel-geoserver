@@ -30,5 +30,5 @@ spec:
 
   env:
     - name: JAVA_OPTS
-      value: "-DALLOW_ENV_PARAMETRIZATION=true"
+      value: "-DALLOW_ENV_PARAMETRIZATION=true -Djava.io.tmpdir=/tmp/tomcat"
 
