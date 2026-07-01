@@ -95,7 +95,7 @@ jobs:
         with:
           context: .
           file: app/Dockerfile
-          push: ${{ github.ref == 'refs/heads/main' }} || ${{github.event_name == 'workflow_dispatch'}}
+          push: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'}}
           tags: ${{ env.image }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
