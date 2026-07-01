@@ -6,6 +6,7 @@ on:
       - .github/workflows/**
       - .skip/**
       - app/**
+      - auth-proxy/**
       - buildSrc/**
       - gradle/libs.versions.toml
       - utils/**
