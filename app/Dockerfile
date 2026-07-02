@@ -7,11 +7,22 @@ COPY gradle ./gradle
 RUN ./gradlew --version
 COPY . .
 
-RUN ./gradlew copyGeoserverLibs --no-daemon
+RUN ./gradlew copyGeoserverLibs
+RUN ./gradlew copyLoggingLibs
 
 FROM docker.osgeo.org/geoserver:3.0.0@sha256:d8ff66a3e0f956415e048494a876e03f6475ddabcf1b1e6e9a8adba82ca50ee7
-# Kopierer inn datamappe til default plassering for GEOSERVER_DATA_DIR
+
+# Kopierer inn datamappe til vanlig plassering for GEOSERVER_DATA_DIR
 COPY --from=build /workspace/app/src/main/resources/data /opt/geoserver_data
 
 # Kopierer inn oracle extension pakker direkte
 COPY --from=build /workspace/app/build/geoserver/ /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
+
+COPY --from=build /workspace/app/build/logging/ /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
+
+# Triksing for å håndtere readonly på skip, kopierer en del filer inn i tmp ved oppstart
+ENV CATALINA_HOME="/tmp/tomcat"
+ENV GEOSERVER_DATA_DIR="/tmp/geoserver_data"
+COPY --from=build /workspace/app/entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+

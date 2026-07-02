@@ -16,8 +16,11 @@ services:
       GEOSERVER_PORT: ${GEOSERVER_PORT}
       SKIP_DEMO_DATA: true
       JAVA_OPTS: -DALLOW_ENV_PARAMETRIZATION=true
+    read_only: true
+    tmpfs:
+      - /tmp:exec
     # Kun bundet til 127.0.0.1 – admin-UI og setup-skript fra host-maskinen,
-    # men ikke eksponert på nettverket. Offentlig trafikk går via nginx.
+    # men ikke eksponert på nettverket. Offentlig trafikk går via auth-proxy.
     ports:
       - "127.0.0.1:${GEOSERVER_PORT}:8080"
 
