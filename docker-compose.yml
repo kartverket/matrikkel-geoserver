@@ -3,10 +3,12 @@ services:
     build:
       context: .
       dockerfile: app/Dockerfile
+    read_only: true
+    tmpfs:
+      - /tmp:exec
     ports:
     - "8087:8080"
     env_file:
       - docker/local-compose.env
     environment:
-      - SKIP_DEMO_DATA=true
       - JAVA_OPTS=-DALLOW_ENV_PARAMETRIZATION=true
