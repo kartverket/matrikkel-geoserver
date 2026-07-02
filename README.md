@@ -31,6 +31,6 @@ This project includes a docker compose that starts the geoserver image
 ### Database
 
 This project expects a preconfigured database. 
-Create a local-compose.env using the template and fill in database connection information. 
+Copy .env.template to .env and fill inn the environment variables. 
 
 The application will start without the correct database information, but you will not be able to use the services.

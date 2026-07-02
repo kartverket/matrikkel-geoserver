@@ -1,14 +1,43 @@
+name: matrikkel-geoserver
+
 services:
   geoserver:
     build:
       context: .
       dockerfile: app/Dockerfile
+    container_name: matrikkel-geoserver
+    environment:
+      KART_DB_DATABASE: ¢{KART_DB_DATABASE}
+      KART_DB_HOST: ${KART_DB_HOST}
+      KART_DB_PORT: ${KART_DB_PORT}
+      KART_DB_SCHEMA: ${KART_DB_SCHEMA}
+      KART_DB_USERNAME: ${KART_DB_USERNAME}
+      KART_DB_PASSWORD: ${KART_DB_PASSWORD}
+      GEOSERVER_PORT: ${GEOSERVER_PORT}
+      SKIP_DEMO_DATA: true
+      JAVA_OPTS: -DALLOW_ENV_PARAMETRIZATION=true
     read_only: true
     tmpfs:
       - /tmp:exec
+    # Kun bundet til 127.0.0.1 – admin-UI og setup-skript fra host-maskinen,
+    # men ikke eksponert på nettverket. Offentlig trafikk går via auth-proxy.
     ports:
-    - "8087:8080"
-    env_file:
-      - docker/local-compose.env
+      - "127.0.0.1:${GEOSERVER_PORT}:8080"
+
+  auth-proxy:
+    build: ./auth-proxy
+    container_name: auth-proxy
     environment:
-      - JAVA_OPTS=-DALLOW_ENV_PARAMETRIZATION=true
+      KEYCLOAK_ISSUER_URL: ${KEYCLOAK_ISSUER_URL}
+      KEYCLOAK_CLIENT_ID: ${KEYCLOAK_CLIENT_ID}
+      ACCEPTED_AUDIENCES: ${ACCEPTED_AUDIENCES}
+      GEOSERVER_URL: http://geoserver:8080
+      PORT: ${AUTH_PROXY_PORT}
+    ports:
+      - "${AUTH_PROXY_PORT}:${AUTH_PROXY_PORT}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      geoserver:
+        condition: service_started
+

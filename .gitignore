@@ -41,4 +41,10 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### auth-proxy ###
+**/bun.lockb
+**/node_modules
+
 *.env
+**/.env
+**/.env.dev
