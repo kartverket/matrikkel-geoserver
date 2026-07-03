@@ -32,3 +32,22 @@ spec:
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
 
+  extraContainers:
+    - image: "{{ auth-proxy-image }}"
+      name: matrikkel-geoserver-auth-proxy
+      additionalPorts:
+        - name: auth-proxy
+          port: 8602
+          protocol: TCP
+      ingressPort: 8602
+      env:
+        - name: KEYCLOAK_ISSUER_URL
+          value: "https://kc-test.matrikkel.no/realms/matrikkelen-test"
+        - name: KEYCLOAK_CLIENT_ID
+          value: "matrikkel-token-exchange"
+        - name: ACCEPTED_AUDIENCES
+          value: "matrikkel-token-exchange"
+        - name: GEOSERVER_URL
+          value: "http://localhost:8080"
+        - name: PORT
+          value: "8602"
