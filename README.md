@@ -34,3 +34,6 @@ This project expects a preconfigured database.
 Copy .env.template to .env and fill inn the environment variables. 
 
 The application will start without the correct database information, but you will not be able to use the services.
+
+### Keycloak
+This project also expects a preconfigured keycloak instance. If the keycloak client is not setup correctly, follow these [steps](./auth-proxy/README.md#)
