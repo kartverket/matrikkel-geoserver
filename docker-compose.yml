@@ -27,6 +27,7 @@ services:
   auth-proxy:
     build: ./auth-proxy
     container_name: auth-proxy
+    read_only: true
     environment:
       KEYCLOAK_ISSUER_URL: ${KEYCLOAK_ISSUER_URL}
       KEYCLOAK_CLIENT_ID: ${KEYCLOAK_CLIENT_ID}
