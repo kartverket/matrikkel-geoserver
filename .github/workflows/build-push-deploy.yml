@@ -134,7 +134,7 @@ jobs:
           auth-proxy-image: ${{ needs.version.outputs.auth-proxy-image }}
         with:
           context: ./auth-proxy
-          file: Dockerfile
+          file: auth-proxy/Dockerfile
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ env.auth-proxy-image }}
           cache-from: type=gha
