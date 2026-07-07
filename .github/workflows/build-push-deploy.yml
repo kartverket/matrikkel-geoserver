@@ -173,6 +173,7 @@ jobs:
           trivy: true
           tfsec: true
           disable_severity_check: true
+          trivy_category: 'matrikkel-geoserver-auth-proxy'
 
   deploy-dev:
     name: "Deploy Dev"
