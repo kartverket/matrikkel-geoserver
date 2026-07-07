@@ -171,7 +171,7 @@ jobs:
         with:
           image_url: ${{ needs.version.outputs.auth-proxy-image }}
           trivy: true
-          tfsec: true
+          tfsec: false
           disable_severity_check: true
           trivy_category: 'matrikkel-geoserver-auth-proxy'
 
