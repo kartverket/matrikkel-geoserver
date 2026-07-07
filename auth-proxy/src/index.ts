@@ -29,6 +29,7 @@ const app = createApp({
   jwks,
   acceptedAudiences: config.acceptedAudiences,
   geoserverUrl: config.geoserverUrl,
+  healthEndpoint: config.healthEndpoint,
   oidcConfig,
   tokenCache: new TokenCache(),
 });
