@@ -18,13 +18,13 @@ spec:
       memory: 2G
 
   liveness:
-    port: 8080
-    path: /geoserver/web/wicket/resource/org.geoserver.web.GeoServerBasePage/img/logo.png
+    port: 8602
+    path: /health
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
   readiness:
-    port: 8080
-    path: /geoserver/web/wicket/resource/org.geoserver.web.GeoServerBasePage/img/logo.png
+    port: 8602
+    path: /health
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
 
