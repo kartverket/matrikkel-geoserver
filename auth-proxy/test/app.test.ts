@@ -45,6 +45,7 @@ function makeApp(keycloakToken: string | null = null) {
     jwks: publicKey,
     acceptedAudiences: ["matrikkel-geoserver"],
     geoserverUrl: "http://mock-geoserver",
+    healthEndpoint: "/mock-health",
     oidcConfig: makeMockOidcConfig(keycloakToken),
     tokenCache: new TokenCache(),
   });

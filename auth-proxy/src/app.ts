@@ -18,6 +18,7 @@ export interface AppDeps {
   jwks: JwksParam;
   acceptedAudiences: string[];
   geoserverUrl: string;
+  healthEndpoint: string;
   oidcConfig: oidc.Configuration;
   tokenCache: TokenCache;
 }
@@ -49,7 +50,7 @@ function badGatewayResponse(detail: string): Response {
 export function createApp(deps: AppDeps): Hono {
   const app = new Hono();
 
-  app.get("/health", () => proxy(`${deps.geoserverUrl.replace(/\/$/, "")}/health`));
+  app.get("/health", () => proxy(`${deps.geoserverUrl.replace(/\/$/, "")}${deps.healthEndpoint}`));
 
   app.all("*", async (c) => {
     const start = Date.now();

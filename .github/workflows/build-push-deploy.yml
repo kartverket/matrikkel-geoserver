@@ -28,6 +28,7 @@ jobs:
     outputs:
       version: ${{ steps.version-string.outputs.version }}
       image: ${{ steps.version-string.outputs.image }}
+      auth-proxy-image: ${{ steps.version-string.outputs.auth-proxy-image }}
 
     steps:
       - name: Generate version string
@@ -37,6 +38,7 @@ jobs:
           version="$(date -u '+%Y.%m.%d-%H.%M')-$(echo "${GITHUB_SHA}" | cut -c1-7)"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
           echo "image=ghcr.io/kartverket/matrikkel-geoserver:${version}" >> "$GITHUB_OUTPUT"
+          echo "auth-proxy-image=ghcr.io/kartverket/matrikkel-geoserver-auth-proxy-image:${version}" >> "$GITHUB_OUTPUT"
 
   test-geoserver:
     name: Run tests
@@ -126,6 +128,18 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Build Auth Docker image
+        uses: docker/build-push-action@v7
+        env:
+          auth-proxy-image: ${{ needs.version.outputs.auth-proxy-image }}
+        with:
+          context: ./auth-proxy
+          file: auth-proxy/Dockerfile
+          push: ${{ github.ref == 'refs/heads/main' }}
+          tags: ${{ env.auth-proxy-image }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
       - name: Tag commit med artifaktversjon
         if: github.ref == 'refs/heads/main'
         run: |
@@ -152,6 +166,13 @@ jobs:
           trivy: true
           tfsec: true
           disable_severity_check: true
+      - name: "Run Pharos Auth"
+        uses: kartverket/pharos@e5a5cf71dd41384d6d62c7d9b387851c0457e81b # v0.6.4
+        with:
+          image_url: ${{ needs.version.outputs.auth-proxy-image }}
+          trivy: true
+          tfsec: true
+          disable_severity_check: true
 
   deploy-dev:
     name: "Deploy Dev"
@@ -171,7 +192,7 @@ jobs:
           cluster: 'atkv3-dev'
           resource: '.skip/dev.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }}
+            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
   deploy-qa:
     name: "Deploy Prodtest"

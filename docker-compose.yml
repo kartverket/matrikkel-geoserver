@@ -7,7 +7,7 @@ services:
       dockerfile: app/Dockerfile
     container_name: matrikkel-geoserver
     environment:
-      KART_DB_DATABASE: ¢{KART_DB_DATABASE}
+      KART_DB_DATABASE: ${KART_DB_DATABASE}
       KART_DB_HOST: ${KART_DB_HOST}
       KART_DB_PORT: ${KART_DB_PORT}
       KART_DB_SCHEMA: ${KART_DB_SCHEMA}
@@ -27,11 +27,13 @@ services:
   auth-proxy:
     build: ./auth-proxy
     container_name: auth-proxy
+    read_only: true
     environment:
       KEYCLOAK_ISSUER_URL: ${KEYCLOAK_ISSUER_URL}
       KEYCLOAK_CLIENT_ID: ${KEYCLOAK_CLIENT_ID}
       ACCEPTED_AUDIENCES: ${ACCEPTED_AUDIENCES}
-      GEOSERVER_URL: http://geoserver:8080
+      GEOSERVER_URL: ${GEOSERVER_URL}
+      HEALTH_ENDPOINT: ${HEALTH_ENDPOINT}
       PORT: ${AUTH_PROXY_PORT}
     ports:
       - "${AUTH_PROXY_PORT}:${AUTH_PROXY_PORT}"
