@@ -18,7 +18,7 @@ export interface AppDeps {
   jwks: JwksParam;
   acceptedAudiences: string[];
   geoserverUrl: string;
-  healthEndpoint:string;
+  healthEndpoint: string;
   oidcConfig: oidc.Configuration;
   tokenCache: TokenCache;
 }
