@@ -127,6 +127,9 @@ jobs:
           tags: ${{ env.image }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          secrets: |
+            github_user=${{ github.actor }}
+            kv_packages_pat=${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Auth Docker image
         uses: docker/build-push-action@v7
