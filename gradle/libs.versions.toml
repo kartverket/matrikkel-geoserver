@@ -15,6 +15,7 @@ kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-j
 kotlinxCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 
 gt-jdbc = { module = "org.geotools.jdbc:gt-jdbc-oracle", version = "35.0" }
+matrikkel-geotools-jdbc = { module = 'org.geotools:matrikkel-geotools-jdbc',  version = '34.2.0.2026.06.23-09.45-c71bfc6' }
 ojdbc17 = { module = "com.oracle.database.jdbc:ojdbc17", version = "23.26.2.0.0"}
 
 log4j-layout = { module = "org.apache.logging.log4j:log4j-layout-template-json", version="2.26.1"}

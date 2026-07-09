@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":utils"))
     "geoserver"(libs.gt.jdbc)
     "geoserver"(libs.ojdbc17)
+    "geoserver"(libs.matrikkel.geotools.jdbc)
 
     "logging"(libs.log4j.layout)
 }

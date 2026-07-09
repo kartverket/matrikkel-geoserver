@@ -8,6 +8,17 @@ dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
         mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/kartverket/matrikkel")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: System.getenv("GITHUB_USER") ?: "token"
+                password = System.getenv("PACKAGES_TOKEN") ?: System.getenv("KV_PACKAGES_PAT") ?: System.getenv("GH_PACKAGES_PAT")
+            }
+            content {
+                includeModule("org.geotools", "matrikkel-geotools-jdbc")
+            }
+        }
         maven("https://repo.osgeo.org/repository/release")
     }
 }

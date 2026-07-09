@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: app/Dockerfile
+      secrets:
+        - kv_packages_pat
+        - github_user
     container_name: matrikkel-geoserver
     environment:
       KART_DB_DATABASE: ${KART_DB_DATABASE}
@@ -42,4 +45,9 @@ services:
     depends_on:
       geoserver:
         condition: service_started
+secrets:
+  kv_packages_pat:
+    environment: KV_PACKAGES_PAT
+  github_user:
+    environment: GITHUB_USER
 
