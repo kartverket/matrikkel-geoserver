@@ -28,9 +28,25 @@ spec:
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
 
+  databases:
+    name: matrikkel-geoserver
+    fields:
+      - envName: KART_DB_HOST
+        path: host
+      - envName: KART_DB_PORT
+        path: ports[0].port
+
   env:
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
+    - name: KART_DB_DATABASE
+      value: "MA02TST.STATKART.NO"
+    - name: KART_DB_SCHEMA
+      value: "DEVTEST_KART"
+    - name: KART_DB_USERNAME
+      value: "DEVTEST_KART"
+    - name: KART_DB_PASSWORD
+      gsmSecretName: "dev-matrikkel-geoserver-db-user-password"
 
   extraContainers:
     - image: "{{ auth-proxy-image }}"
