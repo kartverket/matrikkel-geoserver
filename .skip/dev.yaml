@@ -29,7 +29,7 @@ spec:
     failureThreshold: 6   # default: 3
 
   databases:
-    - name: matrikkel-geoserver
+    - name: matrikkel-devtest
       fields:
         - envName: KART_DB_HOST
           path: host
