@@ -29,12 +29,12 @@ spec:
     failureThreshold: 6   # default: 3
 
   databases:
-    name: matrikkel-geoserver
-    fields:
-      - envName: KART_DB_HOST
-        path: host
-      - envName: KART_DB_PORT
-        path: ports[0].port
+    - name: matrikkel-geoserver
+      fields:
+        - envName: KART_DB_HOST
+          path: host
+        - envName: KART_DB_PORT
+          path: ports[0].port
 
   env:
     - name: JAVA_OPTS
