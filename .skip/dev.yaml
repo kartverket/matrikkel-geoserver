@@ -39,6 +39,8 @@ spec:
   env:
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
+    - name: GEOSERVER_GEOJSON_LEGACY_CRS
+      value: "true"
     - name: KART_DB_DATABASE
       value: "MA02TST.STATKART.NO"
     - name: KART_DB_SCHEMA
