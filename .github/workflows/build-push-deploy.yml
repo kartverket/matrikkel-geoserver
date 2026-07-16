@@ -198,7 +198,7 @@ jobs:
   deploy-qa:
     name: "Deploy Prodtest"
     runs-on: ubuntu-latest
-    if: false #github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     needs:
       - version
       - deploy-dev
