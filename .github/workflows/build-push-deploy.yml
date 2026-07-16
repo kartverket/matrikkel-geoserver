@@ -219,7 +219,7 @@ jobs:
   deploy-prod-notifier:
     name: Slack Notify; Deploy to Production
     runs-on: ubuntu-latest
-    if: false #github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     needs:
       - version
       - pharos
@@ -246,7 +246,7 @@ jobs:
   deploy-prod:
     name: Deploy to prod
     runs-on: ubuntu-latest
-    if: false #github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     needs:
       - version
       - deploy-prod-notifier
@@ -277,4 +277,4 @@ jobs:
           cluster: 'atkv3-prod'
           resource: '.skip/prod.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }}
+            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
