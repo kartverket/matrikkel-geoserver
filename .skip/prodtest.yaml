@@ -8,14 +8,16 @@ spec:
   port: 8080
   ingresses:
     - matrikkel-geoserver-prodtest.atkv3-prod.kartverket-intern.cloud
-  replicas: 1
+  replicas:
+    min: 2
+    max: 4
 
   resources:
     requests:
       cpu: 100m
-      memory: 1G
+      memory: 4G
     limits:
-      memory: 2G
+      memory: 6G
 
   liveness:
     port: 8602
