@@ -56,8 +56,6 @@ jobs:
 
       - name: Run tests
         run: ./gradlew test --no-daemon
-        env:
-          PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-auth-proxy:
     name: Build and run auth-proxy tests
@@ -127,6 +125,9 @@ jobs:
           tags: ${{ env.image }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          secrets: |
+            github_user=${{ github.actor }}
+            kv_packages_pat=${{ secrets.SHARED_PACKAGES_READ_PAT }}
 
       - name: Build Auth Docker image
         uses: docker/build-push-action@v7
