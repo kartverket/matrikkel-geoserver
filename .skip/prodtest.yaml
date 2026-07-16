@@ -28,6 +28,11 @@ spec:
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
 
+  accessPolicy:
+    outbound:
+      external:
+        - host: "auth.matrikkel.no"
+
   databases:
     - name: matrikkel-prodtest
       fields:
