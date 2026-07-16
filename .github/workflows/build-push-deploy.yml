@@ -214,7 +214,7 @@ jobs:
           cluster: 'atkv3-prod'
           resource: '.skip/prodtest.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }}
+            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
   deploy-prod-notifier:
     name: Slack Notify; Deploy to Production
