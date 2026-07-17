@@ -1,0 +1,20 @@
+{
+  "name": "verification",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run src/preparelogs.ts --watch",
+    "verification": "bun run src/preparelogs.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "diff-js-xml": "^1.0.8",
+    "odiff-bin": "^4.3.8"
+  }
+}
