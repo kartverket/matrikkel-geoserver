@@ -197,7 +197,7 @@ jobs:
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
   deploy-qa:
-    name: "Deploy Prodtest"
+    name: "Deploy Staging"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs:
@@ -213,7 +213,7 @@ jobs:
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
         with:
           cluster: 'atkv3-prod'
-          resource: '.skip/prodtest.yaml'
+          resource: '.skip/betatest.yaml,.skip/prodtest.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
