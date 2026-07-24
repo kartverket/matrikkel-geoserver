@@ -194,10 +194,10 @@ jobs:
           cluster: 'atkv3-dev'
           resource: '.skip/dev.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+            image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
   deploy-qa:
-    name: "Deploy Prodtest"
+    name: "Deploy Staging"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs:
@@ -213,9 +213,9 @@ jobs:
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
         with:
           cluster: 'atkv3-prod'
-          resource: '.skip/prodtest.yaml'
+          resource: '.skip/betatest.yaml,.skip/prodtest.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+            image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
   deploy-prod-notifier:
     name: Slack Notify; Deploy to Production
@@ -278,4 +278,4 @@ jobs:
           cluster: 'atkv3-prod'
           resource: '.skip/prod.yaml'
           var: |
-            image=${{ needs.version.outputs.image }},version=${{ needs.version.outputs.version }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+            image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}

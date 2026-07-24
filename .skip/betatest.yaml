@@ -2,12 +2,12 @@ apiVersion: skiperator.kartverket.no/v1alpha1
 kind: Application
 metadata:
   name: matrikkel-geoserver
-  namespace: matrikkel-prodtest
+  namespace: matrikkel-betatest
 spec:
   image: "{{ image }}"
   port: 8080
   ingresses:
-    - matrikkel-geoserver-prodtest.atkv3-prod.kartverket-intern.cloud
+    - matrikkel-geoserver-betatest.atkv3-prod.kartverket-intern.cloud
   replicas:
     min: 2
     max: 4
@@ -36,7 +36,7 @@ spec:
         - host: "auth.matrikkel.no"
 
   databases:
-    - name: matrikkel-prodtest
+    - name: matrikkel-betatest
       fields:
         - envName: KART_DB_HOST
           path: host
@@ -51,11 +51,11 @@ spec:
     - name: KART_DB_DATABASE
       value: "MASY2TST.STATKART.NO"
     - name: KART_DB_SCHEMA
-      value: "SYSTEST2_KART"
+      value: "MATBETA1_KART"
     - name: KART_DB_USERNAME
-      value: "SYSTEST2_KART"
+      value: "MATBETA1_KART"
     - name: KART_DB_PASSWORD
-      gsmSecretName: "matrikkel-prodtest-geoserver-db-password"
+      gsmSecretName: "matrikkel-betatest-geoserver-db-password"
 
   extraContainers:
     - image: "{{ auth-proxy-image }}"
@@ -67,7 +67,7 @@ spec:
       ingressPort: 8602
       env:
         - name: KEYCLOAK_ISSUER_URL
-          value: "https://kc-prodtest.matrikkel.no/auth/realms/matrikkelen-test"
+          value: "https://kc-betatest.matrikkel.no/auth/realms/matrikkelen-test"
         - name: KEYCLOAK_CLIENT_ID
           value: "matrikkel-token-exchange"
         - name: ACCEPTED_AUDIENCES
