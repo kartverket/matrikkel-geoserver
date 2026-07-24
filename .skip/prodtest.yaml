@@ -67,7 +67,7 @@ spec:
       ingressPort: 8602
       env:
         - name: KEYCLOAK_ISSUER_URL
-          value: "https://auth.matrikkel.no/auth/realms/matrikkelen-test"
+          value: "https://kc-prodtest.matrikkel.no/auth/realms/matrikkelen-test"
         - name: KEYCLOAK_CLIENT_ID
           value: "matrikkel-token-exchange"
         - name: ACCEPTED_AUDIENCES
