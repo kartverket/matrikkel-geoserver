@@ -49,7 +49,7 @@ spec:
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_DATABASE
-      value: "MASY2TST.STATKART.NO"
+      value: "MATP2STG.STATKART.NO"
     - name: KART_DB_SCHEMA
       value: "MATBETA1_KART"
     - name: KART_DB_USERNAME
