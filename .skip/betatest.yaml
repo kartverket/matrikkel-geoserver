@@ -31,6 +31,9 @@ spec:
     failureThreshold: 6   # default: 3
 
   accessPolicy:
+    inbound:
+      rules:
+        - application: "matrikkelproxy"
     outbound:
       external:
         - host: "auth.matrikkel.no"

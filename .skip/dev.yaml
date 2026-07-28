@@ -28,9 +28,12 @@ spec:
     initialDelay: 10      # default: 0
     failureThreshold: 6   # default: 3
 
+  accessPolicy:
+    inbound:
+      rules:
+        - application: "matrikkelproxy"
 #  Denne burde ha vært her. Men av en eller annen grunn fungerer det uten.
 #  Dette har blitt nevnt på #gen-skip
-#  accessPolicy:
 #    outbound:
 #      external:
 #        - host: "kc-test.matrikkel.no"
