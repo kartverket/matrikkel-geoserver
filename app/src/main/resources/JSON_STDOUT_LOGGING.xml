@@ -20,19 +20,21 @@
             <AppenderRef ref="stdout"/>
         </Logger>
 
-        <Logger name="org.geoserver" level="info" additivity="false">
+        <Logger name="org.geoserver" level="warn" additivity="false">
+            <AppenderRef ref="stdout"/>
+        </Logger>
+        <Logger name="org.geoserver.config" level="warn" additivity="false">
+            <AppenderRef ref="stdout"/>
+        </Logger>
+        <Logger name="org.vfny.geoserver" level="warn" additivity="false">
             <AppenderRef ref="stdout"/>
         </Logger>
 
-        <Logger name="org.vfny.geoserver" level="info" additivity="false">
+        <Logger name="org.springframework" level="error" additivity="false">
             <AppenderRef ref="stdout"/>
         </Logger>
 
-        <Logger name="org.springframework" level="warn" additivity="false">
-            <AppenderRef ref="stdout"/>
-        </Logger>
-
-        <Logger name="org.geowebcache" level="info" additivity="false">
+        <Logger name="org.geowebcache" level="error" additivity="false">
             <AppenderRef ref="stdout"/>
         </Logger>
 
