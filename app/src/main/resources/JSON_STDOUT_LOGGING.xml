@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Dette er en tilpasning av GeoServer sin PRODUCTION_LOGGING setup;
+    https://github.com/geoserver/geoserver/blob/main/src/main/src/main/resources/PRODUCTION_LOGGING.xml
+ -->
 <Configuration name="JSON_STDOUT_LOGGING" status="warn" dest="err">
     <Appenders>
         <Console name="stdout" target="SYSTEM_OUT">
