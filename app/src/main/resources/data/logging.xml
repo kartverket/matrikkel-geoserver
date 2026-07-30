@@ -1,4 +1,4 @@
 <logging>
-  <level>PRODUCTION_LOGGING</level>
+  <level>JSON_STDOUT_LOGGING</level>
   <stdOutLogging>true</stdOutLogging>
 </logging>
