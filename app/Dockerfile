@@ -15,6 +15,9 @@ RUN ./gradlew copyLoggingLibs
 
 FROM docker.osgeo.org/geoserver:3.0.0@sha256:d8ff66a3e0f956415e048494a876e03f6475ddabcf1b1e6e9a8adba82ca50ee7
 
+# Logger Tomcat-advarsler og -feil som JSON til stdout.
+COPY app/src/main/resources/tomcat/logging.properties /usr/local/tomcat/conf/logging.properties
+
 # Kopierer inn datamappe til vanlig plassering for GEOSERVER_DATA_DIR
 COPY --from=build /workspace/app/src/main/resources/data /opt/geoserver_data
 
