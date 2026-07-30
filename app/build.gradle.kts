@@ -12,7 +12,9 @@ configurations {
         isTransitive = false
     }
 
-    register("logging")
+    register("logging") {
+        isTransitive = false
+    }
 }
 
 dependencies {
@@ -34,7 +36,7 @@ tasks.register<Copy>("copyGeoserverLibs") {
     from(configurations["geoserver"])
     into(layout.buildDirectory.dir("geoserver"))
 }
-tasks.register<Copy>("copyLoggingLibs") {
+tasks.register<Sync>("copyLoggingLibs") {
     from(configurations["logging"])
     into(layout.buildDirectory.dir("logging"))
 }

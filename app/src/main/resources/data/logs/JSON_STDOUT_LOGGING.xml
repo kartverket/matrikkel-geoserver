@@ -6,12 +6,7 @@
 <Configuration name="JSON_STDOUT_LOGGING" status="warn" dest="err">
     <Appenders>
         <Console name="stdout" target="SYSTEM_OUT">
-            <JsonLayout
-                    compact="true"
-                    eventEol="true"
-                    complete="false"
-                    properties="true"
-                    stacktraceAsString="true"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
         </Console>
     </Appenders>
 
