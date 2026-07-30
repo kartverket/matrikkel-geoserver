@@ -7,6 +7,8 @@ kotlin = "2.4.10"
 kotlinxDatetime = "0.8.0"
 kotlinxSerializationJSON = "1.11.0"
 kotlinxCoroutines = "1.11.0"
+# Must match the Log4j version bundled in the pinned GeoServer base image.
+log4j = "2.26.0"
 
 [libraries]
 kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -18,7 +20,7 @@ gt-jdbc = { module = "org.geotools.jdbc:gt-jdbc-oracle", version = "35.0" }
 matrikkel-geotools-jdbc = { module = 'org.geotools:matrikkel-geotools-jdbc',  version = '35.0.0.2026.07.14-11.08-e8b0c68' }
 ojdbc17 = { module = "com.oracle.database.jdbc:ojdbc17", version = "23.26.3.0.0"}
 
-log4j-layout = { module = "org.apache.logging.log4j:log4j-layout-template-json", version="2.26.1"}
+log4j-layout = { module = "org.apache.logging.log4j:log4j-layout-template-json", version.ref = "log4j" }
 # Libraries can be bundled together for easier import
 [bundles]
 kotlinxEcosystem = ["kotlinxDatetime", "kotlinxSerialization", "kotlinxCoroutines"]

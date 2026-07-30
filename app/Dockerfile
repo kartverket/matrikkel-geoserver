@@ -17,7 +17,6 @@ FROM docker.osgeo.org/geoserver:3.0.0@sha256:d8ff66a3e0f956415e048494a876e03f647
 
 # Kopierer inn datamappe til vanlig plassering for GEOSERVER_DATA_DIR
 COPY --from=build /workspace/app/src/main/resources/data /opt/geoserver_data
-COPY --from=build /workspace/app/src/main/resources/JSON_STDOUT_LOGGING.xml /opt/geoserver_data/logs/JSON_STDOUT_LOGGING.xml
 
 # Kopierer inn oracle extension og matrikkel-geotools-jdbc pakker direkte
 COPY --from=build /workspace/app/build/geoserver/ /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
@@ -32,4 +31,3 @@ ENV CATALINA_HOME="/tmp/tomcat"
 ENV GEOSERVER_DATA_DIR="/tmp/geoserver_data"
 COPY --from=build /workspace/app/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-
