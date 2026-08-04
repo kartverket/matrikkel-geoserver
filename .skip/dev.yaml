@@ -47,6 +47,8 @@ spec:
           path: ports[0].port
 
   env:
+    - name: PROXY_BASE_URL
+      value: "https://matrikkel.atkv3-dev.kartverket-intern.cloud/geoservergeo"
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
@@ -75,8 +77,6 @@ spec:
         limits:
           memory: 512M
       env:
-        - name: PROXY_BASE_URL
-          value: "https://matrikkel.atkv3-dev.kartverket-intern.cloud/geoservergeo"
         - name: KEYCLOAK_ISSUER_URL
           value: "https://kc-test.matrikkel.no/auth/realms/matrikkelen-test"
         - name: KEYCLOAK_CLIENT_ID
