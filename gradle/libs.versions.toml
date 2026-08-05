@@ -8,7 +8,7 @@ kotlinxDatetime = "0.8.0"
 kotlinxSerializationJSON = "1.11.0"
 kotlinxCoroutines = "1.11.0"
 # Must match the Log4j version bundled in the pinned GeoServer base image.
-log4j = "2.26.0"
+log4j = "2.26.1"
 
 [libraries]
 kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
