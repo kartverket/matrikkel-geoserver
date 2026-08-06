@@ -32,5 +32,6 @@ RUN rm -f /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gt-jdbc-[0-9]*.jar
 # Triksing for å håndtere readonly på skip, kopierer en del filer inn i tmp ved oppstart
 ENV CATALINA_HOME="/tmp/tomcat"
 ENV GEOSERVER_DATA_DIR="/tmp/geoserver_data"
+ENV GEOSERVER_CONSOLE_DISABLED="true"
 COPY --from=build /workspace/app/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
