@@ -40,11 +40,7 @@ spec:
 
   databases:
     - name: matrikkel-devtest
-      fields:
-        - envName: KART_DB_HOST
-          path: host
-        - envName: KART_DB_PORT
-          path: ports[0].port
+      envName: JDBC_URL
 
   env:
     - name: PROXY_BASE_URL
@@ -53,8 +49,6 @@ spec:
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
-    - name: KART_DB_DATABASE
-      value: "MA02TST.STATKART.NO"
     - name: KART_DB_SCHEMA
       value: "DEVTEST_KART"
     - name: KART_DB_USERNAME
