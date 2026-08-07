@@ -50,9 +50,9 @@ spec:
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_SCHEMA
-      value: "DEVTEST_KART"
+      gsmSecretName: "dev-matrikkel-geoserver-db-user-username"
     - name: KART_DB_USERNAME
-      value: "DEVTEST_KART"
+      gsmSecretName: "dev-matrikkel-geoserver-db-user-username"
     - name: KART_DB_PASSWORD
       gsmSecretName: "dev-matrikkel-geoserver-db-user-password"
 
