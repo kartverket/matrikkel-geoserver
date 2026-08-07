@@ -14,6 +14,7 @@ if [ -n "${JDBC_URL:-}" ]; then
   export KART_DB_HOST="$1"
   export KART_DB_PORT="$2"
   export KART_DB_DATABASE="$3"
+  echo "Setting KART_DB variables: $KART_DB_HOST $KART_DB_PORT $KART_DB_DATABASE"
 fi
 
 mkdir -p /tmp/geoserver_data

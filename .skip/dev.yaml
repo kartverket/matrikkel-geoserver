@@ -50,11 +50,11 @@ spec:
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_SCHEMA
-      gsmSecretName: "dev-matrikkel-geoserver-db-user-username"
+      gsmSecretName: "matrikkel-dev-geoserver-db-username"
     - name: KART_DB_USERNAME
-      gsmSecretName: "dev-matrikkel-geoserver-db-user-username"
+      gsmSecretName: "matrikkel-dev-geoserver-db-username"
     - name: KART_DB_PASSWORD
-      gsmSecretName: "dev-matrikkel-geoserver-db-user-password"
+      gsmSecretName: "matrikkel-dev-geoserver-db-password"
 
   extraContainers:
     - image: "{{ auth-proxy-image }}"
