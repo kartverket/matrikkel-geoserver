@@ -1,0 +1,9 @@
+namespace: matrikkel-kurs-norkart
+ingress: matrikkel-geoserver-kurs-norkart.atkv3-prod.kartverket-intern.cloud
+publicHost: kurs-norkart.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-kurs
+
+databaseName: # TODO define in heimdall-apps
+gsmDbPrefix: matrikkel-kursnorkart

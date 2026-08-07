@@ -1,0 +1,9 @@
+namespace: matrikkel-katastrofe
+ingress: katastrofe-matrikkel.atsvg3-prod.karverket-intern.cloud
+publicHost: katastrofe-matrikkel.atsvg3-prod.karverket-intern.cloud
+
+keycloakHost: kc-katastrofe.matrikkel.no
+keycloakRealm: matrikkelen-prod
+
+databaseName: matrikkel-prod-readonly
+gsmDbPrefix: matrikkel-prod

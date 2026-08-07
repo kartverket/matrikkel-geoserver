@@ -1,0 +1,9 @@
+namespace: matrikkel-kurs-2
+ingress: matrikkel-geoserver-kurs-2.atkv3-prod.kartverket-intern.cloud
+publicHost: kurs2.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-kurs
+
+databaseName: # TODO define in heimdall-apps
+gsmDbPrefix: matrikkel-kurs2

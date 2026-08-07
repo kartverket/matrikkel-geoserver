@@ -1,0 +1,9 @@
+namespace: matrikkel-simtest
+ingress: matrikkel-geoserver-simtest.atkv3-prod.kartverket-intern.cloud
+publicHost: simtest.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-prod
+
+databaseName: # TODO define in heimdall-apps
+gsmDbPrefix: matrikkel-simtest

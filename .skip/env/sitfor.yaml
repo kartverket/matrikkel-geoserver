@@ -1,0 +1,9 @@
+namespace: matrikkel-sitfor
+ingress: matrikkel-geoserver-sitfor.atkv3-prod.kartverket-intern.cloud
+publicHost: sitfor.statkart.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-test
+
+databaseName: # TODO define in heimdall-apps
+gsmDbPrefix: matrikkel-sitfor
