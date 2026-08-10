@@ -279,7 +279,7 @@ jobs:
         with:
           cluster: 'atkv3-prod'
           resource: '.skip/app.yaml'
-          var_files: '.skip/env/prod.yaml'
+          var_files: '.skip/env/prod.yaml,.skip/env/prod-nd.yaml,.skip/env/prod-se-eiendom.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 

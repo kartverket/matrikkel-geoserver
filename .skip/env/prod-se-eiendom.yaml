@@ -1,0 +1,15 @@
+namespace: matrikkel-se-eiendom
+ingress: matrikkel-geoserver-se-eiendom.atkv3-prod.kartverket-intern.cloud
+publicHost: seeiendom.matrikkel.no
+
+# Skalerer opp litt i produksjon
+replicasMax: 6
+cpuRequest: 2
+memoryRequest: 8Gi
+memoryLimit: 10Gi
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-prod
+
+databaseName: matrikkel-prod-readonly
+gsmDbPrefix: matrikkel-innsyn
