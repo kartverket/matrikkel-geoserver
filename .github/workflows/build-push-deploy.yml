@@ -312,6 +312,7 @@ jobs:
             .skip/env/sitfor.yaml
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+          wait: false # auto-sync er ikke skrudd på
 
       - name: Deploy to katastrofe
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
@@ -321,3 +322,4 @@ jobs:
           var_files: '.skip/env/katastrofe.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+          wait: false # auto-sync er ikke skrudd på
