@@ -279,6 +279,45 @@ jobs:
         with:
           cluster: 'atkv3-prod'
           resource: '.skip/app.yaml'
-          var_files: '.skip/env/prod.yaml'
+          var_files: '.skip/env/prod.yaml,.skip/env/prod-nd.yaml,.skip/env/prod-se-eiendom.yaml'
+          var: |
+            image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+
+  deploy-remaining-environments:
+    name: Deploy to remaining environments
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - version
+      - deploy-prod
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - name: Deploy to resterende miljø
+        uses: kartverket/matrikkel-actions/heimdall-deploy@main
+        with:
+          cluster: 'atkv3-prod'
+          resource: '.skip/app.yaml'
+          var_files: |
+            .skip/env/kurs-1.yaml
+            .skip/env/kurs-2.yaml
+            .skip/env/kurs-3.yaml
+            .skip/env/kurs-norconsult.yaml
+            .skip/env/kurs-norkart.yaml
+            .skip/env/foringsenheten.yaml
+            .skip/env/kommunetest.yaml
+            .skip/env/simtest.yaml
+            .skip/env/sitfor.yaml
+          var: |
+            image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
+
+      - name: Deploy to katastrofe
+        uses: kartverket/matrikkel-actions/heimdall-deploy@main
+        with:
+          cluster: 'atsvg3-prod'
+          resource: '.skip/app.yaml'
+          var_files: '.skip/env/katastrofe.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}

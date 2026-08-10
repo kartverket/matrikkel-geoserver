@@ -1,0 +1,9 @@
+namespace: matrikkel-kurs-norconsult
+ingress: matrikkel-geoserver-kurs-norconsult.atkv3-prod.kartverket-intern.cloud
+publicHost: kurs-norconsult.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-kurs
+
+databaseName: matrikkel-readonly
+gsmDbPrefix: matrikkel-kursnorconsult

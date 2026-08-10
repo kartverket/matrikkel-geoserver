@@ -1,0 +1,9 @@
+namespace: matrikkel-foringsenheten
+ingress: matrikkel-geoserver-foringsenheten.atkv3-prod.kartverket-intern.cloud
+publicHost: foring.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-test
+
+databaseName: matrikkel-readonly
+gsmDbPrefix: matrikkel-foringsenheten

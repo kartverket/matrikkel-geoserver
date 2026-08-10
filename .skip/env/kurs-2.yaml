@@ -1,0 +1,9 @@
+namespace: matrikkel-kurs-2
+ingress: matrikkel-geoserver-kurs-2.atkv3-prod.kartverket-intern.cloud
+publicHost: kurs2.matrikkel.no
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-kurs
+
+databaseName: matrikkel-readonly
+gsmDbPrefix: matrikkel-kurs2
