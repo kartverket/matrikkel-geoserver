@@ -192,7 +192,8 @@ jobs:
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
         with:
           cluster: 'atkv3-dev'
-          resource: '.skip/dev.yaml'
+          resource: '.skip/app.yaml'
+          var_files: '.skip/env/dev.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
@@ -213,7 +214,8 @@ jobs:
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
         with:
           cluster: 'atkv3-prod'
-          resource: '.skip/betatest.yaml,.skip/prodtest.yaml'
+          resource: '.skip/app.yaml'
+          var_files: '.skip/env/betatest.yaml,.skip/env/prodtest.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
@@ -276,6 +278,7 @@ jobs:
         uses: kartverket/matrikkel-actions/heimdall-deploy@main
         with:
           cluster: 'atkv3-prod'
-          resource: '.skip/prod.yaml'
+          resource: '.skip/app.yaml'
+          var_files: '.skip/env/prod.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}

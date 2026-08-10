@@ -2,20 +2,22 @@ apiVersion: skiperator.kartverket.no/v1alpha1
 kind: Application
 metadata:
   name: matrikkel-geoserver
-  namespace: matrikkel-main
+  namespace: "{{ namespace }}"
 spec:
   image: "{{ image }}"
   port: 8080
   ingresses:
-    - matrikkel-geoserver.atkv3-dev.kartverket-intern.cloud
-  replicas: 1
+    - "{{ ingress }}"
+  replicas:
+    min: {{ replicasMin:-2 }}
+    max: {{ replicasMax:-4 }}
 
   resources:
     requests:
-      cpu: 100m
-      memory: 1G
+      cpu: {{cpuRequest:-100m}}
+      memory: {{memoryRequest:-4G}}
     limits:
-      memory: 2G
+      memory: {{memoryLimit:-6G}}
 
   liveness:
     port: 8602
@@ -32,29 +34,27 @@ spec:
     inbound:
       rules:
         - application: "matrikkelproxy"
-#  Denne burde ha vært her. Men av en eller annen grunn fungerer det uten.
-#  Dette har blitt nevnt på #gen-skip
-#    outbound:
-#      external:
-#        - host: "kc-test.matrikkel.no"
+    outbound:
+      external:
+        - host: "{{ keycloakHost }}"
 
   databases:
-    - name: matrikkel-devtest
+    - name: "{{ databaseName }}"
       envName: JDBC_URL
 
   env:
     - name: PROXY_BASE_URL
-      value: "https://matrikkel.atkv3-dev.kartverket-intern.cloud/geoservergeo"
+      value: "https://{{ publicHost }}/geoservergeo"
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true"
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_SCHEMA
-      gsmSecretName: "matrikkel-dev-geoserver-db-username"
+      gsmSecretName: "{{ gsmDbPrefix }}-geoserver-db-username"
     - name: KART_DB_USERNAME
-      gsmSecretName: "matrikkel-dev-geoserver-db-username"
+      gsmSecretName: "{{ gsmDbPrefix }}-geoserver-db-username"
     - name: KART_DB_PASSWORD
-      gsmSecretName: "matrikkel-dev-geoserver-db-password"
+      gsmSecretName: "{{ gsmDbPrefix }}-geoserver-db-password"
 
   extraContainers:
     - image: "{{ auth-proxy-image }}"
@@ -72,7 +72,7 @@ spec:
           memory: 512M
       env:
         - name: KEYCLOAK_ISSUER_URL
-          value: "https://kc-test.matrikkel.no/auth/realms/matrikkelen-test"
+          value: "https://{{ keycloakHost }}/auth/realms/{{ keycloakRealm }}"
         - name: KEYCLOAK_CLIENT_ID
           value: "matrikkel-token-exchange"
         - name: ACCEPTED_AUDIENCES

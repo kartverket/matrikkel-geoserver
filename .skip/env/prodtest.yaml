@@ -1,0 +1,9 @@
+namespace: matrikkel-prodtest
+ingress: matrikkel-geoserver-prodtest.atkv3-prod.kartverket-intern.cloud
+publicHost: prodtest.matrikkel.no
+
+keycloakHost: kc-prodtest.matrikkel.no
+keycloakRealm: matrikkelen-test
+
+databaseName: matrikkel-prodtest
+gsmDbPrefix: matrikkel-prodtest

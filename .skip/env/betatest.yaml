@@ -1,0 +1,9 @@
+namespace: matrikkel-betatest
+ingress: matrikkel-geoserver-betatest.atkv3-prod.kartverket-intern.cloud
+publicHost: betatest.matrikkel.no
+
+keycloakHost: kc-betatest.matrikkel.no
+keycloakRealm: matrikkelen-test
+
+databaseName: matrikkel-betatest
+gsmDbPrefix: matrikkel-betatest
