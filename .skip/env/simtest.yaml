@@ -5,5 +5,5 @@ publicHost: simtest.matrikkel.no
 keycloakHost: auth.matrikkel.no
 keycloakRealm: matrikkelen-prod
 
-databaseName: # TODO define in heimdall-apps
+databaseName: matrikkel-readonly
 gsmDbPrefix: matrikkel-simtest

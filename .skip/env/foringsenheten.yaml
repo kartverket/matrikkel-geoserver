@@ -5,5 +5,5 @@ publicHost: foring.matrikkel.no
 keycloakHost: auth.matrikkel.no
 keycloakRealm: matrikkelen-test
 
-databaseName: # TODO define in heimdall-apps
+databaseName: matrikkel-readonly
 gsmDbPrefix: matrikkel-foringsenheten

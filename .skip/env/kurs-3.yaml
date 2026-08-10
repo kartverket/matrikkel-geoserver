@@ -5,5 +5,5 @@ publicHost: kurs3.matrikkel.no
 keycloakHost: auth.matrikkel.no
 keycloakRealm: matrikkelen-kurs
 
-databaseName: # TODO define in heimdall-apps
+databaseName: matrikkel-readonly
 gsmDbPrefix: matrikkel-kurs3
