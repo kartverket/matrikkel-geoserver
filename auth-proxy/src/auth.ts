@@ -46,15 +46,22 @@ async function exchangeToken(
     response = await oidc.genericGrantRequest(config, "password", { username, password });
   } catch (error) {
     if (error instanceof oidc.ResponseBodyError) {
-      if (error.status === 400 || error.status === 401)
-        throw new InvalidCredentialsError("invalid username or password");
-      throw new UpstreamAuthError(`identity provider error: ${error.error}`);
+      if (error.error === "invalid_grant") {
+        throw new InvalidCredentialsError("invalid username or password", { cause: error });
+      }
+      throw new UpstreamAuthError(`identity provider error`, { cause: error });
     }
-    throw new UpstreamAuthError("identity provider unreachable");
+    throw new UpstreamAuthError(`identity provider unreachable`, { cause: error });
   }
 
-  if (!response.access_token) throw new UpstreamAuthError("no access token in response");
-  return { token: response.access_token, ttlSeconds: ttlFromResponse(response) };
+  if (!response.access_token) {
+    throw new UpstreamAuthError("no access token in response");
+  }
+
+  return {
+    token: response.access_token,
+    ttlSeconds: ttlFromResponse(response),
+  };
 }
 
 function ttlFromResponse(response: oidc.TokenEndpointResponse): number {
