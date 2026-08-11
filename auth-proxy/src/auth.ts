@@ -34,7 +34,8 @@ export async function verifyBasicAuth(
   if (!accessToken) {
     const { token, ttlSeconds } = await exchangeToken(oidcConfig, username, password);
     accessToken = token;
-    tokenCache.set(cacheKey, accessToken, ttlSeconds);
+    const ttlSecondsWithLeeway = ttlSeconds - Math.floor(Math.min(0.1 * ttlSeconds, 30));
+    tokenCache.set(cacheKey, accessToken, ttlSecondsWithLeeway);
   }
 
   return verifyJwt(accessToken, jwks);
