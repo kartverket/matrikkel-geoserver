@@ -4,6 +4,7 @@ import { verifyJwt } from "./jwt.ts";
 import type { TokenCache, TokenResult } from "./tokenCache.ts";
 import type { TokenClaims } from "./types.ts";
 import { InvalidCredentialsError, UpstreamAuthError } from "./types.ts";
+import { logger } from "./logger.ts";
 
 export async function verifyBearerToken(
   authorizationHeader: string,
@@ -65,13 +66,21 @@ async function exchangeToken(
 }
 
 function ttlFromResponse(response: oidc.TokenEndpointResponse): number {
-  if (response.expires_in != null && response.expires_in > 0) return response.expires_in;
+  if (response.expires_in != null && response.expires_in > 0) {
+    return response.expires_in;
+  }
+
   try {
-    const payload = JSON.parse(
-      Buffer.from(response.access_token?.split(".")[1], "base64url").toString(),
-    );
-    if (typeof payload.exp === "number")
-      return Math.max(0, payload.exp - Math.floor(Date.now() / 1000));
+    const encodedPayload = response.access_token?.split(".")?.at(1);
+    if (encodedPayload) {
+      const payload = JSON.parse(Buffer.from(encodedPayload, "base64url").toString("utf8"));
+
+      if (typeof payload.exp === "number") {
+        return Math.max(0, payload.exp - Math.floor(Date.now() / 1000));
+      }
+    }
   } catch {}
-  return 60;
+
+  logger.warn('Could not extract TTL from token.')
+  return 0;
 }
