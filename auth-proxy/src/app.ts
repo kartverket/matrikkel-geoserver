@@ -84,15 +84,15 @@ export function createApp(deps: AppDeps): Hono {
       assertAudienceIsAccepted(tokenClaims, deps.acceptedAudiences);
     } catch (error) {
       if (error instanceof UpstreamAuthError) {
-        log.error({ status: 502, err: error.message }, "upstream auth error");
+        log.error({ status: 502, err: error }, "upstream auth error");
         return badGatewayResponse(error.message);
       }
       if (error instanceof TokenAudienceError) {
-        log.warn({ status: 403, err: error.message }, "token audience rejected");
+        log.warn({ status: 403, err: error }, "token audience rejected");
         return forbiddenResponse(error.message);
       }
       if (error instanceof InvalidCredentialsError || error instanceof TokenVerificationError) {
-        log.warn({ status: 401, err: error.message }, "authentication failed");
+        log.warn({ status: 401, err: error }, "authentication failed");
         return unauthorizedResponse(error.message);
       }
       log.warn({ status: 401 }, "authentication failed");
