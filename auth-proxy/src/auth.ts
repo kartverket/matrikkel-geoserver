@@ -1,10 +1,10 @@
 import * as oidc from "openid-client";
 import type { JwksParam } from "./jwt.ts";
 import { verifyJwt } from "./jwt.ts";
+import { logger } from "./logger.ts";
 import type { TokenCache, TokenResult } from "./tokenCache.ts";
 import type { TokenClaims } from "./types.ts";
 import { InvalidCredentialsError, UpstreamAuthError } from "./types.ts";
-import { logger } from "./logger.ts";
 
 export async function verifyBearerToken(
   authorizationHeader: string,
@@ -29,10 +29,9 @@ export async function verifyBasicAuth(
   const username = decoded.slice(0, colonIndex);
   const password = decoded.slice(colonIndex + 1);
 
-  const accessToken = await tokenCache.getOrFetch(
-      authorizationHeader,
-      () => exchangeToken(oidcConfig, username, password)
-  )
+  const accessToken = await tokenCache.getOrFetch(authorizationHeader, () =>
+    exchangeToken(oidcConfig, username, password),
+  );
 
   return verifyJwt(accessToken, jwks);
 }
@@ -81,6 +80,6 @@ function ttlFromResponse(response: oidc.TokenEndpointResponse): number {
     }
   } catch {}
 
-  logger.warn('Could not extract TTL from token.')
+  logger.warn("Could not extract TTL from token.");
   return 0;
 }

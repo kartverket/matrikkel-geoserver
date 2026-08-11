@@ -27,12 +27,11 @@ export class TokenCache {
     const existingRequest = this.inFlight.get(key);
     if (existingRequest) return existingRequest;
 
-    const request = tokenProvider()
-        .then(({ token, ttlSeconds }) => {
-          const leeway = Math.floor(Math.min(0.1 * ttlSeconds, 30));
-          this.set(key, token, ttlSeconds - leeway);
-          return token;
-        });
+    const request = tokenProvider().then(({ token, ttlSeconds }) => {
+      const leeway = Math.floor(Math.min(0.1 * ttlSeconds, 30));
+      this.set(key, token, ttlSeconds - leeway);
+      return token;
+    });
 
     this.inFlight.set(key, request);
 
