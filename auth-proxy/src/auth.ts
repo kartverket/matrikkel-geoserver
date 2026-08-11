@@ -1,7 +1,7 @@
 import * as oidc from "openid-client";
 import type { JwksParam } from "./jwt.ts";
 import { verifyJwt } from "./jwt.ts";
-import type { TokenCache } from "./tokenCache.ts";
+import type { TokenCache, TokenResult } from "./tokenCache.ts";
 import type { TokenClaims } from "./types.ts";
 import { InvalidCredentialsError, UpstreamAuthError } from "./types.ts";
 
@@ -28,15 +28,10 @@ export async function verifyBasicAuth(
   const username = decoded.slice(0, colonIndex);
   const password = decoded.slice(colonIndex + 1);
 
-  const cacheKey = authorizationHeader;
-  let accessToken = tokenCache.get(cacheKey);
-
-  if (!accessToken) {
-    const { token, ttlSeconds } = await exchangeToken(oidcConfig, username, password);
-    accessToken = token;
-    const ttlSecondsWithLeeway = ttlSeconds - Math.floor(Math.min(0.1 * ttlSeconds, 30));
-    tokenCache.set(cacheKey, accessToken, ttlSecondsWithLeeway);
-  }
+  const accessToken = await tokenCache.getOrFetch(
+      authorizationHeader,
+      () => exchangeToken(oidcConfig, username, password)
+  )
 
   return verifyJwt(accessToken, jwks);
 }
@@ -45,7 +40,7 @@ async function exchangeToken(
   config: oidc.Configuration,
   username: string,
   password: string,
-): Promise<{ token: string; ttlSeconds: number }> {
+): Promise<TokenResult> {
   let response: oidc.TokenEndpointResponse;
   try {
     response = await oidc.genericGrantRequest(config, "password", { username, password });
