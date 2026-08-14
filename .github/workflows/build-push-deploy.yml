@@ -193,7 +193,7 @@ jobs:
         with:
           cluster: 'atkv3-dev'
           resource: '.skip/app.yaml'
-          var_files: '.skip/env/dev.yaml'
+          var_files: '.skip/env/dev.yaml,.skip/env/releasetest.yaml'
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
 
