@@ -310,6 +310,7 @@ jobs:
             .skip/env/kommunetest.yaml
             .skip/env/simtest.yaml
             .skip/env/sitfor.yaml
+            .skip/env/komreg.yaml
           var: |
             image=${{ needs.version.outputs.image }},auth-proxy-image=${{needs.version.outputs.auth-proxy-image}}
           wait: false # auto-sync er ikke skrudd på
