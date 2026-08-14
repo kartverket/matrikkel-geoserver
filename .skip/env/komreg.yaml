@@ -1,0 +1,14 @@
+namespace: matrikkel-komreg
+ingress: matrikkel-geoserver-komreg.atkv3-prod.kartverket-intern.cloud
+publicHost: komreg-matrikkel-prodtest.atkv3-prod.kartverket-intern.cloud
+
+# Komreg miljøet er skrudd av
+replicasMin: 0
+replicasMax: 0
+cpuRequest: 500m
+
+keycloakHost: auth.matrikkel.no
+keycloakRealm: matrikkelen-prod
+
+databaseName: matrikkel-komreg
+gsmDbPrefix: matrikkel-prod
