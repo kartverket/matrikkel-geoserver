@@ -8,9 +8,9 @@ spec:
   port: 8080
   ingresses:
     - "{{ ingress }}"
-  replicas:
-    min: {{ replicasMin:-2 }}
-    max: {{ replicasMax:-4 }}
+  replicas: 0
+#    min: {{ replicasMin:-2 }}
+#    max: {{ replicasMax:-4 }}
 
   resources:
     requests:
