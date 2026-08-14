@@ -115,6 +115,8 @@ export function createApp(deps: AppDeps): Hono {
 
     const headers = new Headers(c.req.raw.headers);
     headers.delete("Authorization");
+    headers.delete("Content-Length");
+    headers.delete("Transfer-Encoding");
     headers.set("X-Forwarded-User", user);
     headers.set("X-Request-ID", requestId);
 
