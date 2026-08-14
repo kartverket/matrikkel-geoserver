@@ -28,6 +28,7 @@ COPY --from=build /workspace/app/build/logging/ /usr/local/tomcat/webapps/geoser
 
 # Sletter vanlig geotools som er erstattet med matrikkel versjon
 RUN rm -f /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gt-jdbc-[0-9]*.jar
+RUN rm -f /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gt-jdbc-postgis-*.jar
 
 # Triksing for å håndtere readonly på skip, kopierer en del filer inn i tmp ved oppstart
 ENV CATALINA_HOME="/tmp/tomcat"
