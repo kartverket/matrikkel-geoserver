@@ -56,7 +56,18 @@ export function createApp(deps: AppDeps): Hono {
     const start = Date.now();
     const requestId = c.req.header("X-Request-ID") ?? crypto.randomUUID();
     const { pathname, search } = new URL(c.req.url);
-    const log = logger.child({ requestId, method: c.req.method, path: pathname });
+    const log = logger.child({
+      requestId,
+      method: c.req.method,
+      path: pathname + search,
+
+      contentLength: c.req.header("Content-Length") ?? null,
+      transferEncoding: c.req.header("Transfer-Encoding") ?? null,
+      connection: c.req.header("Connection") ?? null,
+      expect: c.req.header("Expect") ?? null,
+      hasBody: c.req.raw.body !== null,
+      userAgent: c.req.header("User-Agent") ?? null,
+    });
 
     const authorizationHeader = c.req.header("Authorization") ?? "";
     const lowerAuth = authorizationHeader.toLowerCase();
