@@ -1,0 +1,15 @@
+namespace: matrikkel-releasetest
+ingress: matrikkel-geoserver-releasetest.atkv3-dev.kartverket-intern.cloud
+publicHost: releasetest-matrikkel.atkv3-dev.kartverket-intern.cloud
+
+# Scaling down dev environment
+replicasMin: 1
+replicasMax: 1
+cpuRequest: 100m
+memoryRequest: 1G
+memoryLimit: 2G
+
+keycloakHost: kc-test.matrikkel.no
+keycloakRealm: matrikkelen-test
+databaseName: matrikkel-releasetest
+gsmDbPrefix: matrikkel-releasetest
