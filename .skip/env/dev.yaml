@@ -12,4 +12,4 @@ memoryLimit: 2G
 keycloakHost: kc-test.matrikkel.no
 keycloakRealm: matrikkelen-test
 databaseName: matrikkel-devtest
-gsmDbPrefix: dev-matrikkel
+gsmDbPrefix: matrikkel-dev
