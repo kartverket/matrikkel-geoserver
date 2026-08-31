@@ -13,7 +13,7 @@ RUN --mount=type=secret,id=github_user,env=GITHUB_USER \
 
 RUN ./gradlew copyLoggingLibs
 
-FROM docker.osgeo.org/geoserver:3.0.1@sha256:7cb827ba3f6d9fc04a6647fc0cfa6c254fc642407f0d99281fdf026d2540b558
+FROM docker.osgeo.org/geoserver:3.1.x@sha256:6de130921af95642f071110f87be4f0617c6545aa6974e70abbf1fe2ccfc4efc
 
 # Logger Tomcat-advarsler og -feil som JSON til stdout.
 COPY app/src/main/resources/tomcat/logging.properties /usr/local/tomcat/conf/logging.properties
