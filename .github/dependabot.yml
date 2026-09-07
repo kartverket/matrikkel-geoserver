@@ -1,4 +1,10 @@
 version: 2
+registries:
+  github-matrikkel-geotools-jdbc:
+    type: maven-repository
+    url: https://maven.pkg.github.com/kartverket/matrikkel-geotools-jdbc
+    username: x-access-token
+    password: ${{ secrets.SHARED_PACKAGES_READ_TOKEN }}
 updates:
   - package-ecosystem: "github-actions"
     directory: ".github/workflows"
@@ -6,6 +12,8 @@ updates:
       interval: "weekly"
   - package-ecosystem: "gradle"
     directory: "/"
+    registries:
+      - github-matrikkel-geotools-jdbc
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
