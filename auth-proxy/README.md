@@ -114,3 +114,12 @@ docker run -p 8602:80 \
   -e PORT=80 \
   proxy-ts
 ```
+
+## Keycloak client
+Hvis ikke client er satt opp, gjør følgende:
+1. Login i admin panelet
+2. Velg realm med brukere
+3. Velg clients
+4. Legg til client med riktig navn og Direct access grants
+5. Velg client scopes og velg < navn >-dedicated og legg til mapper
+6. Legg til audience mapper med "included custom audience" med verdi fra accepted audiences.
