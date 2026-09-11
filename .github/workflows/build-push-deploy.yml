@@ -38,7 +38,7 @@ jobs:
           echo "auth-proxy-image=ghcr.io/kartverket/matrikkel-geoserver-auth-proxy-image:${version}" >> "$GITHUB_OUTPUT"
 
   test-geoserver:
-    name: Verify GeoServer Gradle tasks
+    name: Run checks
     runs-on: ubuntu-latest
 
     steps:
@@ -54,7 +54,7 @@ jobs:
       - name: Verify GeoServer dependencies
         env:
           PACKAGES_TOKEN: ${{ secrets.SHARED_PACKAGES_READ_PAT }}
-        run: ./gradlew copyGeoserverLibs copyLoggingLibs --no-daemon
+        run: ./gradlew check --no-daemon
 
   build-auth-proxy:
     name: Build and run auth-proxy tests

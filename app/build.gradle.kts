@@ -28,3 +28,8 @@ tasks.register<Sync>("copyLoggingLibs") {
     from(configurations["logging"])
     into(layout.buildDirectory.dir("logging"))
 }
+
+tasks.named("check") {
+    dependsOn("copyGeoserverLibs")
+    dependsOn("copyLoggingLibs")
+}
