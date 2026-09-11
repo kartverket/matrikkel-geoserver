@@ -1,8 +1,7 @@
-plugins {
-    // Apply the shared build logic from a convention plugin.
-    // The shared code is located in `buildSrc/src/main/kotlin/kotlin-jvm.gradle.kts`.
-    id("buildsrc.convention.kotlin-jvm")
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
+plugins {
+    alias(libs.plugins.kotlin.jvm)
     // Apply the Application plugin to add support for building an executable JVM application.
     application
 }
@@ -17,9 +16,12 @@ configurations {
     }
 }
 
+kotlin {
+    // Use a specific Java version to make it easier to work in different environments.
+    jvmToolchain(21)
+}
+
 dependencies {
-    // Project "app" depends on project "utils". (Project paths are separated with ":", so ":utils" refers to the top-level "utils" project.)
-    implementation(project(":utils"))
     "geoserver"(libs.gt.jdbc)
     "geoserver"(libs.ojdbc17)
     "geoserver"(libs.matrikkel.geotools.jdbc)
@@ -39,4 +41,18 @@ tasks.register<Copy>("copyGeoserverLibs") {
 tasks.register<Sync>("copyLoggingLibs") {
     from(configurations["logging"])
     into(layout.buildDirectory.dir("logging"))
+}
+
+tasks.withType<Test>().configureEach {
+    // Configure all test Gradle tasks to use JUnitPlatform.
+    useJUnitPlatform()
+
+    // Log information about all test results, not only the failed ones.
+    testLogging {
+        events(
+            TestLogEvent.FAILED,
+            TestLogEvent.PASSED,
+            TestLogEvent.SKIPPED
+        )
+    }
 }
