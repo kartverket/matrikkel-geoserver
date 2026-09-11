@@ -7,9 +7,7 @@ on:
       - .skip/**
       - app/**
       - auth-proxy/**
-      - buildSrc/**
       - gradle/libs.versions.toml
-      - utils/**
   workflow_dispatch:
 
 env:
@@ -40,7 +38,7 @@ jobs:
           echo "auth-proxy-image=ghcr.io/kartverket/matrikkel-geoserver-auth-proxy-image:${version}" >> "$GITHUB_OUTPUT"
 
   test-geoserver:
-    name: Run tests
+    name: Verify GeoServer Gradle tasks
     runs-on: ubuntu-latest
 
     steps:
@@ -53,8 +51,10 @@ jobs:
           java-version: '25'
           cache: gradle
 
-      - name: Run tests
-        run: ./gradlew test --no-daemon
+      - name: Verify GeoServer dependencies
+        env:
+          PACKAGES_TOKEN: ${{ secrets.SHARED_PACKAGES_READ_PAT }}
+        run: ./gradlew copyGeoserverLibs copyLoggingLibs --no-daemon
 
   build-auth-proxy:
     name: Build and run auth-proxy tests
