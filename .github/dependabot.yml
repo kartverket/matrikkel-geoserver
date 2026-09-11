@@ -15,6 +15,3 @@ updates:
     ignore:
       - dependency-name: "eclipse-temurin"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "geoserver"
-        versions:
-          - "*.x"          # Blocks 3.1.x, 3.2.x, etc. These are nightly builds
