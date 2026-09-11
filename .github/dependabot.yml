@@ -15,3 +15,7 @@ updates:
     ignore:
       - dependency-name: "eclipse-temurin"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "geoserver"
+        versions:
+          - "3.1.x" # Blocks nightly tags; Update this when upgrading GeoServer
+          - "4.0.x" # Blocks nightly tags; Update this when upgrading GeoServer
