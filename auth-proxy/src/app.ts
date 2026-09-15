@@ -88,7 +88,7 @@ export function createApp(deps: AppDeps): Hono {
           deps.jwks,
         );
       } else {
-        log.warn({ status: 401 }, "missing Authorization header");
+        log.debug({ status: 401 }, "missing Authorization header");
         return unauthorizedResponse("missing Authorization header");
       }
 
