@@ -88,7 +88,7 @@ export function createApp(deps: AppDeps): Hono {
           deps.jwks,
         );
       } else {
-        log.debug({ status: 401 }, "missing Authorization header");
+        log.info({ status: 401 }, "missing Authorization header");
         return unauthorizedResponse("missing Authorization header");
       }
 
@@ -103,10 +103,10 @@ export function createApp(deps: AppDeps): Hono {
         return forbiddenResponse(error.message);
       }
       if (error instanceof InvalidCredentialsError || error instanceof TokenVerificationError) {
-        log.warn({ status: 401, err: error }, "authentication failed");
+        log.info({ status: 401, err: error }, "authentication failed");
         return unauthorizedResponse(error.message);
       }
-      log.warn({ status: 401 }, "authentication failed");
+      log.info({ status: 401 }, "authentication failed");
       return unauthorizedResponse("authentication failed");
     }
 
