@@ -11,7 +11,7 @@ updates:
   - package-ecosystem: "docker"
     directories:
       - "/app"
-      - "/mat-auth"
+      - "/auth-proxy"
     schedule:
       interval: "daily"
     ignore:
