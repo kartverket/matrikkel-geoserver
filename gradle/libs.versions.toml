@@ -7,7 +7,7 @@
 log4j = "2.26.1"
 
 [libraries]
-gt-jdbc = { module = "org.geotools.jdbc:gt-jdbc-oracle", version = "35.1" }
+gt-jdbc = { module = "org.geotools.jdbc:gt-jdbc-oracle", version = "35.2" }
 matrikkel-geotools-jdbc = { module = 'org.geotools:matrikkel-geotools-jdbc',  version = '35.1.0.2026.09.07-12.05-d7e1057' }
 ojdbc17 = { module = "com.oracle.database.jdbc:ojdbc17", version = "23.26.3.0.0"}
 
