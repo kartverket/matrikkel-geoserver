@@ -1,4 +1,4 @@
-FROM dhi.io/eclipse-temurin:25.0.5.8-jdk-alpine3.24-dev@sha256:7b9e77da049189f7628f64b52daa9b53f2726619aad0f434b2da3d9f2e13bb2d AS build
+FROM dhi.io/eclipse-temurin:27.0.1.1-jdk-alpine3.24-dev@sha256:ddb909abc21f7708867f04582421d3bad8efbaa5cf4d30cf23340714b820179f AS build
 WORKDIR /workspace
 
 # Laster inn minimalt av filer for å få caching av gradle inn.
