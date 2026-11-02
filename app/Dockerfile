@@ -1,4 +1,4 @@
-FROM ghcr.io/kartverket/emudhra-images/jdk/dockerhub:jdk-25.0-alpine3.24@sha256:9040fd4372ac7c4581712c77ba9324a175ff9f9679ab3ff60ea5c12eb02fcdb9 AS build
+FROM dhi.io/eclipse-temurin:25.0.5.8-jdk-alpine3.24-dev@sha256:7b9e77da049189f7628f64b52daa9b53f2726619aad0f434b2da3d9f2e13bb2d AS build
 WORKDIR /workspace
 
 # Laster inn minimalt av filer for å få caching av gradle inn.
