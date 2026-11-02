@@ -28,8 +28,6 @@ updates:
     schedule:
       interval: "daily"
     ignore:
-      - dependency-name: "eclipse-temurin"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "dhi.io/eclipse-temurin"
         update-types: ["version-update:semver-major"]
       - dependency-name: "geoserver"
