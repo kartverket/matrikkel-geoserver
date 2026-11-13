@@ -51,7 +51,7 @@ spec:
     - name: PROXY_BASE_URL
       value: "https://{{ publicHost }}/geoservergeo"
     - name: JAVA_OPTS
-      value: "-DALLOW_ENV_PARAMETRIZATION=true"
+      value: "-DALLOW_ENV_PARAMETRIZATION=true -Xmx4g"
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_SCHEMA
