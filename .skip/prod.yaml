@@ -15,9 +15,9 @@ spec:
   resources:
     requests:
       cpu: {{cpuRequest:-100m}}
-      memory: {{memoryRequest:-4G}}
+      memory: {{memoryRequest:-6G}}
     limits:
-      memory: {{memoryLimit:-6G}}
+      memory: {{memoryLimit:-8G}}
 
   liveness:
     port: 8602
