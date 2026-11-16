@@ -4,7 +4,7 @@ publicHost: matrikkel.no
 
 # Skalerer opp litt i produksjon
 replicasMax: 6
-cpuRequest: 500m
+cpuRequest: 1000m
 
 keycloakHost: auth.matrikkel.no
 keycloakRealm: matrikkelen-prod
