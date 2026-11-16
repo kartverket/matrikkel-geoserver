@@ -9,7 +9,10 @@ Dukker opp på WFS 1.1.0 `GetFeature` med `filter=<ogc:Filter xmlns:ogc='http://
 
 ## Årsak
 Ikke feil bruk fra klienten. Requestene har riktig namespace og returnerer `200` med korrekt resultat.
-GeoServer parser `filter`-parameteren med en validerende XML-parser mot WFS 1.1.0-skjemaet, som ikke deklarerer `Filter` som rot-element. GeoTools logger derfor en WARN, men parser filteret uansett. Ren logg-støy.
+GeoServer prøver filteret mot flere parsere i fast rekkefølge: FES 2.0 (`http://www.opengis.net/fes/2.0`), deretter OGC Filter 1.0, deretter 1.1, og til slutt en gammel parser (se `FilterKvpParser` i GeoServer, WMS-varianten; WFS antas å ha samme mønster).
+Klienten bruker `http://www.opengis.net/ogc`, så første forsøk (FES 2.0) feiler med `cvc-elt.1.a` og logges som WARN, før neste parser lykkes. Ren logg-støy.
+
+Alternativ til logg-filter: klienten kan bruke FES 2.0-namespace (krever WFS 2.0-syntaks), da lykkes første forsøk og meldingen uteblir.
 
 ## Tiltak
 Meldingen filtreres bort i `app/src/main/resources/data/logs/JSON_STDOUT_LOGGING.xml` med et `RegexFilter` (`onMatch="DENY"`) på `org.geotools.xsd.impl`.
