@@ -15,6 +15,11 @@
             <AppenderRef ref="stdout"/>
         </Logger>
 
+        <Logger name="org.geotools.xsd.impl" level="warn" additivity="false">
+            <RegexFilter regex=".*cvc-elt\.1\.a: Cannot find the declaration of element 'Filter'.*" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <AppenderRef ref="stdout"/>
+        </Logger>
+
         <Logger name="org.geotools.factory" level="warn" additivity="false">
             <AppenderRef ref="stdout"/>
         </Logger>
