@@ -1,4 +1,4 @@
-FROM dhi.io/bun:1.4.4-alpine-dev@sha256:da31284d76f059bc8d29ba93ba0098e46de8e97f1485aa07a5503d0dda958017 AS deps
+FROM dhi.io/bun:1.4.4-alpine-dev@sha256:eeac9f33abcae851f1408466ccc598e3e43ef155a83142a9fad8343e4ae08590 AS deps
 WORKDIR /app
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile --production
