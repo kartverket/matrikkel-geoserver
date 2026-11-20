@@ -8,6 +8,7 @@ replicasMax: 1
 cpuRequest: 100m
 memoryRequest: 1G
 memoryLimit: 2G
+maxHeap: 1g
 
 keycloakHost: kc-test.matrikkel.no
 keycloakRealm: matrikkelen-test

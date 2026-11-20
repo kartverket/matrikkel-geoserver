@@ -47,6 +47,10 @@ spec:
       value: "https://{{ publicHost }}/geoservergeo"
     - name: JAVA_OPTS
       value: "-DALLOW_ENV_PARAMETRIZATION=true -XX:-UseBASE64Intrinsics"
+    # Heap må settes i EXTRA_JAVA_OPTS, ikke JAVA_OPTS. Se docs/kjente-feil/oom.md
+    # Hold maxHeap ~0,8 GiB under memoryLimit for metaspace/tråder/native minne.
+    - name: EXTRA_JAVA_OPTS
+      value: "-Xms256m -Xmx{{ maxHeap:-4g }}"
     - name: GEOSERVER_GEOJSON_LEGACY_CRS
       value: "true"
     - name: KART_DB_SCHEMA
