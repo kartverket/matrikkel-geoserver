@@ -47,6 +47,13 @@ function badGatewayResponse(detail: string): Response {
   });
 }
 
+function internalServerErrorResponse(): Response {
+  return new Response(JSON.stringify({ error: "server_error", detail: "Internal server error" }), {
+    status: 500,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
 export function createApp(deps: AppDeps): Hono {
   const app = new Hono();
 
@@ -120,14 +127,20 @@ export function createApp(deps: AppDeps): Hono {
     headers.set("X-Forwarded-User", user);
     headers.set("X-Request-ID", requestId);
 
-    const response = await proxy(upstreamUrl, { raw: c.req.raw, headers });
-
-    log.info(
-      { status: response.status, authMethod, user, durationMs: Date.now() - start },
-      "request proxied",
-    );
-
-    return response;
+    try {
+      const response = await proxy(upstreamUrl, { raw: c.req.raw, headers });
+      log.info(
+        { status: response.status, authMethod, user, durationMs: Date.now() - start },
+        "request proxied",
+      );
+      return response;
+    } catch (error: unknown) {
+      log.error(
+        { status: 500, authMethod, user, durationMs: Date.now() - start, err: error },
+        "proxy error",
+      );
+      return internalServerErrorResponse();
+    }
   });
 
   return app;
