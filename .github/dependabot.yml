@@ -6,6 +6,11 @@ registries:
     # Dependabot kan ikke lese vars, så brukernavnet må også ligge som Dependabot-secret
     username: ${{ secrets.DOCKERHUB_USERNAME }}
     password: ${{ secrets.DOCKERHUB_TOKEN }}
+  osgeo:
+    type: docker-registry
+    url: https://docker.osgeo.org
+    username: anonymous
+    password: anonymous
 updates:
   - package-ecosystem: "bun"
     directory: "/auth-proxy"
@@ -32,6 +37,7 @@ updates:
       - "/auth-proxy"
     registries:
       - dhi
+      - osgeo
     schedule:
       interval: "daily"
     ignore:
