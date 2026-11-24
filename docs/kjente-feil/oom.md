@@ -40,7 +40,7 @@ aldri på kommandolinjen.
 
 ### Verifisering
 
-- Base-image-default: `docker run --rm --entrypoint sh docker.osgeo.org/geoserver:3.0.1 -c 'echo $EXTRA_JAVA_OPTS'`
+- Base-image-default: `docker run --rm --entrypoint sh docker.osgeo.org/geoserver:3.0.2 -c 'echo $EXTRA_JAVA_OPTS'`
   gir `-Xms256m -Xmx1g`.
 - Kjørende pod i prodtest: `jcmd 1 VM.flags` viste `MaxHeapSize=1073741824` (1 GiB) med 6G limit.
 - Lokalt i base-imaget, samme rekkefølge som Tomcat: gammel prod-konfig (`-Xmx6g` i `JAVA_OPTS`) ga
