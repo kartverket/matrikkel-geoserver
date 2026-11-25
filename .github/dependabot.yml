@@ -9,8 +9,6 @@ registries:
   osgeo:
     type: docker-registry
     url: https://docker.osgeo.org
-    username: anonymous
-    password: anonymous
 updates:
   - package-ecosystem: "bun"
     directory: "/auth-proxy"
