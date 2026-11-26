@@ -10,7 +10,7 @@
     "lint:fix": "biome check --write --unsafe src/ test/"
   },
   "dependencies": {
-    "hono": "^4.13.18",
+    "hono": "^4.13.20",
     "jose": "^6.2.18",
     "lru-cache": "^11.5.3",
     "openid-client": "^6.9.1",
